@@ -100,7 +100,8 @@ public final class ClickGuiScreen extends Screen {
 
     @Override
     public void render(GuiGraphics graphics, int mouseX, int mouseY, float delta) {
-        renderBackground(graphics, mouseX, mouseY, delta);
+        // Avoid Screen's built-in blur: Minecraft 1.21.11 permits only one blur pass per frame.
+        graphics.fill(0, 0, width, height, 0x90000000);
         int panelWidth = panelWidth();
         int left = panelLeft();
         int top = panelTop();
