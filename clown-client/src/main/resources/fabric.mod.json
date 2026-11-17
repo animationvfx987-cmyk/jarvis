@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "clownclient",
+  "version": "${version}",
+  "name": "CLOWN CLIENT",
+  "description": "A fair-play, client-side utility and accessibility toolkit for private worlds and agreed test environments.",
+  "authors": ["CLOWN CLIENT contributors"],
+  "contact": {},
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "client": ["dev.clownclient.ClownClient"]
+  },
+  "depends": {
+    "fabricloader": ">=0.18.1",
+    "minecraft": "=1.21.11",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}
