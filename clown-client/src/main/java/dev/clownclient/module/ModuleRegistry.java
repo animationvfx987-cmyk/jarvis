@@ -27,11 +27,11 @@ public final class ModuleRegistry {
             }
         });
         MODULES.add(new ClientModule("Fullbright", "Raises local gamma for visibility; does not reveal hidden blocks or entities.", ModuleCategory.VISUALS) {
-            private Integer previous;
+            private Double previous;
             @Override protected void onEnable(Minecraft client) {
                 if (client.options != null) {
                     previous = client.options.gamma().get();
-                    client.options.gamma().set(16);
+                    client.options.gamma().set(16.0);
                 }
             }
             @Override public void tick(Minecraft client) {
