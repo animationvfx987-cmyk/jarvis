@@ -13,20 +13,17 @@ public final class ModuleRegistry {
         if (!MODULES.isEmpty()) return;
         MODULES.add(new ClientModule("Toggle Sprint", "Keeps vanilla sprint input held while enabled.", ModuleCategory.MOVEMENT) {
             @Override public void tick(Minecraft client) {
-                if (client.player != null && client.options != null) {
-                    client.options.keySprint.setDown(enabled() && !client.player.isShiftKeyDown());
+                if (enabled() && client.player != null && client.options != null
+                        && !client.player.isShiftKeyDown()) {
+                    client.options.keySprint.setDown(true);
                 }
-            }
-            @Override protected void onDisable(Minecraft client) {
-                if (client.options != null) client.options.keySprint.setDown(false);
             }
         });
         MODULES.add(new ClientModule("Toggle Sneak", "Keeps vanilla sneak input held while enabled.", ModuleCategory.MOVEMENT) {
             @Override public void tick(Minecraft client) {
-                if (client.options != null) client.options.keyShift.setDown(enabled());
-            }
-            @Override protected void onDisable(Minecraft client) {
-                if (client.options != null) client.options.keyShift.setDown(false);
+                if (enabled() && client.options != null) {
+                    client.options.keyShift.setDown(true);
+                }
             }
         });
         MODULES.add(new ClientModule("Fullbright", "Raises local gamma for visibility; does not reveal hidden blocks or entities.", ModuleCategory.VISUALS) {
