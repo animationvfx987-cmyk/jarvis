@@ -5,11 +5,7 @@ pluginManagement {
         mavenCentral()
     }
 }
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        maven { url = 'https://maven.fabricmc.net/' }
-        mavenCentral()
-    }
-}
+
+// Fabric Loom adds a local remapped-mods repository at project level.
+// Keep Gradle's default PREFER_PROJECT behavior so Loom can register it.
 rootProject.name = 'clown-client'
